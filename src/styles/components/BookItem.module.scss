@@ -1,0 +1,43 @@
+
+.bookItem {
+    display: flex;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  
+    img {
+      width: 120px;
+      height: 180px;
+      margin-right: 1rem;
+    }
+  
+    .bookDetails {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  
+      h3 {
+        margin: 0;
+      }
+  
+      p {
+        margin: 0.5rem 0;
+      }
+  
+      button {
+        margin-top: 1rem;
+        background: none;
+        border: none;
+        color: #007bff;
+        cursor: pointer;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  
