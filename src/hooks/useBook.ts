@@ -1,14 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { useCallback, useEffect,useState } from "react";
-import usePagination from "./usePagination";
-import { Book } from "../types/book";
+
 const BOOK_URL: string = 'https://my-json-server.typicode.com/cutamar/mock/books'
 
 
 export function useBook(id:string|undefined) {
   const url:string = id?`${BOOK_URL}/${id}`:BOOK_URL
   const [favorites,setFavorites] = useState<string[]>([])
-  const [bookList,setBookList] = useState<Book[]>([])
+
 
   const { isPending, error, data, isError } = useQuery({
       queryKey: [url],
@@ -19,13 +18,12 @@ export function useBook(id:string|undefined) {
           staleTime:1000*60*60*3,    
   })
 
-  const {  currentData,  } = usePagination(data,5)
+
 
   useEffect(()=>{
     const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]')
     setFavorites(storedFavorites)
-    console.log(currentData,'currr')
-    setBookList(currentData())
+    
   },[])
 
 
@@ -39,6 +37,6 @@ export function useBook(id:string|undefined) {
       return updatedFavorites;
     });
   },[])
-  return { isPending, error, data, isError,toggleFavorite,favorites,bookList }
+  return { isPending, error, data, isError,toggleFavorite,favorites }
 }
 

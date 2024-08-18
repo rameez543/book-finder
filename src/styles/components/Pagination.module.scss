@@ -1,0 +1,20 @@
+.pagination_container{
+    display:flex;
+    justify-content: space-between;
+    font-weight: 400;
+    color: black;
+    margin: auto;
+    padding: 2rem;
+    max-width: 300px;
+
+    
+    .current_page{
+        color: blue;
+        font-weight: 800;
+    }
+    p{
+        cursor: pointer;
+    }
+    
+
+}
